@@ -5,6 +5,7 @@
 //main function
 int main(int argc, char **argv)
 {
+	//not necessary, only for testing
 	int arr[5] = {1,2,3,4,5};
 	shift_element(arr, 3);
 	int i;
@@ -21,11 +22,15 @@ int main(int argc, char **argv)
 		printf("%d,",arr2[j]);
 	}
 	printf("\n");
+	//end testing
 
+
+	//the main for Ex3
 	int k;
 	int num;
 	int user[size] = {0};
 	int* user_ptr = user;
+	printf("please insert 50 numbers separated with space/enter: ");
 	for(k = 0; k < size; k++)
 	{
 		scanf(" %d",&num);
@@ -38,5 +43,5 @@ int main(int argc, char **argv)
 	{
 		printf("%d,",user[l]);
 	}
-	printf("\n");	
+	printf("all numbers are now sorted!\n");	
 }
