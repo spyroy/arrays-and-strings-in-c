@@ -1,5 +1,5 @@
-#ifndef Ex3__h
-#define Ex3__h
+#ifndef isort__h
+#define isort__h
 
 
 void shift_element(int* arr, int i);
