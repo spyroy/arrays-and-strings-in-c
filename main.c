@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "isort.h"
+#include "findtxt.h"
 #define size 50
+#define LINE 256
 
 //main function
 int main(int argc, char **argv)
@@ -25,7 +27,7 @@ int main(int argc, char **argv)
 	//end testing
 
 
-	//the main for Ex3
+	//the main for isorted
 	int k;
 	int num;
 	int user[size] = {0};
@@ -43,5 +45,23 @@ int main(int argc, char **argv)
 	{
 		printf("%d,",user[l]);
 	}
-	printf("all numbers are now sorted!\n");	
+	printf("all numbers are now sorted!\n");
+
+	//main for findtxt
+	char s[280] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+	int a;
+	for(a = 0; a < sizeof(s); a++)
+	{
+		printf("%c",s[a]);
+	}
+	printf("\n");
+	int count = my_getline(s);
+	if(count == -1)
+	{
+		printf("please insert txt with maximum 256 characters");
+	}
+	else
+	{
+		printf("%d \n", count);
+	}	
 }
