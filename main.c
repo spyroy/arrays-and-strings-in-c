@@ -48,20 +48,23 @@ int main(int argc, char **argv)
 	printf("all numbers are now sorted!\n");
 
 	//main for findtxt
-	char s[280] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+	char s[] = "i love cats\nbut also like dogs\tand most of all\nfishes";
 	int a;
 	for(a = 0; a < sizeof(s); a++)
 	{
 		printf("%c",s[a]);
 	}
 	printf("\n");
-	int count = my_getline(s);
-	if(count == -1)
-	{
-		printf("please insert txt with maximum 256 characters");
-	}
-	else
-	{
-		printf("%d \n", count);
-	}	
+	int chars = my_getchar(s);
+	int lines = my_getline(s);
+	int words = my_getword(s); 
+	printf("%d \n", chars);	
+	printf("%d \n", lines);
+	printf("%d \n", words);
+	char s1[] = "ssysems";
+	char s2[] = "ssysems";
+	char* s1ptr = s1;
+	char* s2ptr = s2;
+	printf("%d \n", substring(s2ptr,s1ptr));
+	printf("%d \n", similar(s2ptr,s1ptr,1));
 }
