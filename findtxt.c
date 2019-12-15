@@ -117,4 +117,60 @@ int similar(char* s, char* t, int n)
 	}
 	return 0;
 }
+
+void printline(char line[], char* str)
+{
+	int i = 0;
+	int j=0;
+	int h = 0;	
+	char word [LINE][WORD];
+	for(i = 0; i < my_getchar(line)-1; i++)
+	{
+		if(line [i] == ' ' || line [i] == '\0')
+		{
+			word[h][j] = '\0';	
+			h++;
+			j = 0;
+		}
+		else
+		{
+			word[h][j] = line[i];
+			j++;
+		}
+	}
+	
+	for(i = 0;i <= h+1; i++)
+	{
+		if(similar(word[i],str,0) == 1)
+		{
+			printf("%s",line);
+			break;
+		}
+	}
+	for(i=0; i < LINE; i++){
+		for(j=0; j < WORD; j++){
+			word[i][j] = '\0';
+		}
+	}
+}
+
+//prints every line that contains the given word
+void print_lines(char* str)
+{
+	if ( stdin != NULL )
+	{
+ 		char line[LINE]; 
+		while (fgets(line, sizeof line, stdin) != NULL)
+   		{
+			printline(line,str);
+    		}
+    		fclose(stdin);
+	}
+	else
+	{
+   		//file doesn't exist
+	}
+	
+
+}
 		

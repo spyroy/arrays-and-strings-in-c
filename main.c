@@ -61,10 +61,12 @@ int main(int argc, char **argv)
 	printf("%d \n", chars);	
 	printf("%d \n", lines);
 	printf("%d \n", words);
-	char s1[] = "ssysems";
-	char s2[] = "ssysems";
+	char s1[] = "cat";
+	char s2[] = "cat";
 	char* s1ptr = s1;
 	char* s2ptr = s2;
 	printf("%d \n", substring(s2ptr,s1ptr));
-	printf("%d \n", similar(s2ptr,s1ptr,1));
+	printf("%d \n", similar(s2ptr,s1ptr,0));	
+	char s3[] = "cat";
+	print_lines(s3);
 }
