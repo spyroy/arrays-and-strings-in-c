@@ -5,7 +5,7 @@
 ### up to 50 numbers, and sorting them that the largest number will be the last.
 ### this method use "shift_element" to impliment the insertion sort.
 ### 
-### and the second is "find_txt" which have two options:
+### the second function is "find_txt" which have two options:
 ### a - prints every line in the text that contains a specific word that the user inserted
 ### b - prints every word that similar to the given word
 ### ** a word will considered similar if it is equal to the given word by omitting one letter.
