@@ -118,6 +118,7 @@ int similar(char* s, char* t, int n)
 	return 0;
 }
 
+//prints the wanted line
 void printline(char line[], char* str)
 {
 	int i = 0;
@@ -154,6 +155,24 @@ void printline(char line[], char* str)
 	}
 }
 
+//not used after all
+int checkline(char line[], char* str)
+{
+	char word[WORD]; 
+	char* ptr = line;
+	int i = 0;
+	while (*ptr != ' ')
+   	{	
+		word[i] = *ptr;
+		if(similar(word,str,0) == 1)
+		{
+			return 1;
+		}
+		word[0] = '\0';
+    	}
+    	return 0;
+}
+
 //prints every line that contains the given word
 void print_lines(char* str)
 {
@@ -168,9 +187,31 @@ void print_lines(char* str)
 	}
 	else
 	{
-   		//file doesn't exist
+   		//file doesn't exist or empty
 	}
 	
 
+}
+
+//prints every word that "similar" to the given word
+void print_similar_words(char* str)
+{
+	if ( stdin != NULL )
+	{
+ 		char word[WORD]; 
+		while (fscanf(stdin, " %s",word) == 1)
+   		{
+			if(similar(word,str,1) == 1||similar(word,str,0) == 1)
+			{
+				printf("%s\n",word);
+			}
+			word[0] = '\0';
+    		}
+    		fclose(stdin);
+	}
+	else
+	{
+   		//file doesn't exist or empty
+	}
 }
 		

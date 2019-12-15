@@ -1,0 +1,8 @@
+cat a
+this should cat print this line 
+not this ccat line
+also not this line crat
+and this line  cat
+
+cat b
+what should be printed cat ?
