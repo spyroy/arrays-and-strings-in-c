@@ -10,14 +10,14 @@ LIBso=libisort.so
 LIBso2=libfindtxt.so
 FLAGS= -Wall -g 
 
-all: isortd isorts findtxtd findtxts isort_mains isort_maind  findtxt_mains findtxt_maind
+all: isortd isorts findtxtd findtxts isort isort_maind  txtfind findtxt_maind
 
-isort_mains: $(MAINOBJECTS1) $(LIBa)
-	$(CC) $(flags) -o isort_mains $(MAINOBJECTS1) $(LIBa) 
+isort: $(MAINOBJECTS1) $(LIBa)
+	$(CC) $(flags) -o isort $(MAINOBJECTS1) $(LIBa) 
 isort_maind: $(MAINOBJECTS1)
 	$(CC) $(flags) -o isort_maind $(MAINOBJECTS1) ./$(LIBso)
-findtxt_mains: $(MAINOBJECTS2) $(LIBa2)
-	$(CC) $(flags) -o findtxt_mains $(MAINOBJECTS2) $(LIBa2) 
+txtfind: $(MAINOBJECTS2) $(LIBa2)
+	$(CC) $(flags) -o txtfind $(MAINOBJECTS2) $(LIBa2) 
 findtxt_maind: $(MAINOBJECTS2)
 	$(CC) $(flags) -o findtxt_maind $(MAINOBJECTS2) ./$(LIBso2)
 
