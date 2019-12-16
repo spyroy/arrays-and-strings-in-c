@@ -18,9 +18,10 @@ int main(int argc, char **argv)
 	}
 	insertion_sort(user,size); 
 	int l;
-	for(l = 0; l < size; l++)
+	for(l = 0; l < size-1; l++)
 	{
 		printf("%d,",user[l]);
 	}
+	printf("%d \n",user[l]);
 	printf("all numbers are now sorted!\n");
 }
