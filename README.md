@@ -9,4 +9,4 @@
 ### a - prints every line in the text that contains a specific word that the user inserted.
 ### b - prints every word that similar to the given word.
 ### ** a word will considered similar if it is equal to the given word by omitting one letter.
-(Ex3 in sw_systems course)
+Ex3 in sw_systems course
