@@ -142,7 +142,7 @@ void printline(char line[], char* str)
 	
 	for(i = 0;i <= h+1; i++)
 	{
-		if(similar(word[i],str,1) == 1||similar(word[i],str,0) == 1)
+		if(similar(word[i],str,0) == 1||similar(word[i],str,1) == 1)
 		{
 			printf("%s",line);
 			break;
