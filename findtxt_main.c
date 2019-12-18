@@ -14,11 +14,9 @@ int main(int argc, char **argv)
 	switch(choice)
 	{
 		case 'a':
-			printf("all lines that contains the word: %s, will be printed..\n",str);
 			print_lines(str);
 			break;
 		case 'b':
-			printf("all words that similar to the word: %s will be printed..",str);
 			print_similar_words(str);
 			break;
 	}
