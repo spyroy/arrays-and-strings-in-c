@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include "findtxt.h"
+#include <string.h>
+#include <stdlib.h>
 #define LINE 256
 #define WORD 30
+#define LINES 250
+#define WORDS 32000
 
 //returns number of characters in a text
 int my_getchar(char c[])
@@ -31,7 +35,7 @@ int my_getline(char s[])
 			}
 		}
 	}
-	if(lines > LINE)
+	if(lines > LINES)
 	{
 		lines  = -1;
 	}
@@ -52,7 +56,7 @@ int my_getword(char w[])
 			}
 		}
 	}
-	if(words > WORD)
+	if(words > WORDS)
 	{
 		words  = -1;
 	}
@@ -118,6 +122,35 @@ int similar(char* s, char* t, int n)
 	return 0;
 }
 
+// compare between two words
+int compare(char* str1, char* str2)
+{
+	while(*str1 && *str2)
+	{
+		if(*str1 != *str2)
+		{
+			return 0;
+		}
+		str1++;
+		str2++;
+	}
+	return (*str2 ==  '\0');
+}
+
+// returns if a word is contained in another
+int contains (char* str1, char* str2)
+{
+	while(*str1 != '\0')
+	{
+		if((*str1 == *str2) && compare(str1,str2))
+		{
+			return 1;
+		}
+		str1++;
+	}
+	return 0;
+}
+
 //prints the wanted line
 void printline(char line[], char* str)
 {
@@ -133,16 +166,21 @@ void printline(char line[], char* str)
 			h++;
 			j = 0;
 		}
-		else
+		else //if( j < WORD)
 		{
 			word[h][j] = line[i];
 			j++;
 		}
-	}
-	
+		//else
+		//{
+			//printf("ERR: a word with more than 30 chars was found in the next line\n");
+			//return;
+		//}
+	}	
+
 	for(i = 0;i <= h+1; i++)
 	{
-		if(similar(word[i],str,0) == 1||similar(word[i],str,1) == 1)
+		if(contains(word[i],str) == 1)
 		{
 			printf("%s",line);
 			break;
@@ -155,33 +193,20 @@ void printline(char line[], char* str)
 	}
 }
 
-//not used after all
-int checkline(char line[], char* str)
-{
-	char word[WORD]; 
-	char* ptr = line;
-	int i = 0;
-	while (*ptr != ' ')
-   	{	
-		word[i] = *ptr;
-		if(similar(word,str,0) == 1)
-		{
-			return 1;
-		}
-		word[0] = '\0';
-    	}
-    	return 0;
-}
 
 //prints every line that contains the given word
 void print_lines(char* str)
 {
+	int i = 0;
 	if ( stdin != NULL )
 	{
  		char line[LINE]; 
 		while (fgets(line, sizeof line, stdin) != NULL)
    		{
 			printline(line,str);
+			i++;
+			if(i > LINES)
+				return;
     		}
     		fclose(stdin);
 	}
@@ -196,7 +221,7 @@ void print_lines(char* str)
 //prints every word that "similar" to the given word
 void print_similar_words(char* str)
 {
-	if ( stdin != NULL )
+	if ( stdin != NULL)
 	{
  		char word[WORD]; 
 		while (fscanf(stdin, " %s",word) == 1)

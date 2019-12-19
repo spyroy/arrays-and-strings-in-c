@@ -2,6 +2,7 @@
 #include "findtxt.h"
 #define LINE 256
 #define WORD 30
+#define LINES 250
 
 //main function to findtxt
 int main(int argc, char **argv)
